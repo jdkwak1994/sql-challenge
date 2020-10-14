@@ -92,3 +92,15 @@ SELECT last_name AS "last name",
 FROM employees
 GROUP BY last_name
 ORDER BY "count" DESC;
+
+--wondering what the employee id 499942 is...
+SELECT * FROM employees
+JOIN department_employee
+ON employees.emp_no = department_employee.emp_no
+JOIN departments
+ON department_employee.dept_no = departments.dept_no
+JOIN titles
+ON employees.emp_title_id = titles.title_id
+JOIN salaries
+ON employees.emp_no = salaries.emp_no
+WHERE employees.emp_no = 499942;
